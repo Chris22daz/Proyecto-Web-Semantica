@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="agencia_autos.xsl"?>
+<agencia xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="agencia_autos.xsd">
+    <titulo>Agencia de Autos ServiDrive</titulo>
+    <autos>
+        <auto id="A005">
+            <marca>Volkswagen</marca>
+            <modelo>POL</modelo>
+            <anio>2025</anio>
+            <tipo>Sedan</tipo>
+            <precio>560000</precio>
+            <kilometraje>10000</kilometraje>
+            <transmision>Manual</transmision>
+            <estado>Disponible</estado>
+            <foto>/uploads/A005.jpg</foto>
+        </auto>
+        <auto id="A004">
+            <marca>Volkswagen</marca>
+            <modelo>Jetta</modelo>
+            <anio>2025</anio>
+            <tipo>Sedan</tipo>
+            <precio>560000</precio>
+            <kilometraje>10000</kilometraje>
+            <transmision>Automática</transmision>
+            <estado>Disponible</estado>
+            <foto>/uploads/A004.jpg</foto>
+        </auto>
+        <auto id="A001">
+            <marca>Toyota</marca>
+            <modelo>Corolla</modelo>
+            <anio>2022</anio>
+            <tipo>Sedan</tipo>
+            <precio>420000</precio>
+            <kilometraje>32000</kilometraje>
+            <transmision>Automática</transmision>
+            <estado>Disponible</estado>
+            <foto>/uploads/A001.jpg</foto>
+        </auto>
+        <auto id="A002">
+            <marca>Honda</marca>
+            <modelo>CR-V</modelo>
+            <anio>2021</anio>
+            <tipo>SUV</tipo>
+            <precio>560000</precio>
+            <kilometraje>41000</kilometraje>
+            <transmision>Automática</transmision>
+            <estado>Vendida</estado>
+            <foto>/uploads/A002.jpg</foto>
+        </auto>
+        <auto id="A003">
+            <marca>Ford</marca>
+            <modelo>Focus</modelo>
+            <anio>2020</anio>
+            <tipo>Hatchback</tipo>
+            <precio>310000</precio>
+            <kilometraje>54000</kilometraje>
+            <transmision>Manual</transmision>
+            <estado>Disponible</estado>
+            <foto>/uploads/A003.jpg</foto>
+        </auto>
+    </autos>
+</agencia>

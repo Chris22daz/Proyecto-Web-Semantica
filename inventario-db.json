@@ -1,0 +1,62 @@
+[
+  {
+    "id": "A005",
+    "marca": "Volkswagen",
+    "modelo": "POL",
+    "anio": 2025,
+    "tipo": "Sedan",
+    "precio": 560000,
+    "kilometraje": 10000,
+    "transmision": "Manual",
+    "estado": "Disponible",
+    "foto": "/uploads/A005.jpg"
+  },
+  {
+    "id": "A004",
+    "marca": "Volkswagen",
+    "modelo": "Jetta",
+    "anio": 2025,
+    "tipo": "Sedan",
+    "precio": 560000,
+    "kilometraje": 10000,
+    "transmision": "Automática",
+    "estado": "Disponible",
+    "foto": "/uploads/A004.jpg"
+  },
+  {
+    "id": "A001",
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "anio": 2022,
+    "tipo": "Sedan",
+    "precio": 420000,
+    "kilometraje": 32000,
+    "transmision": "Automática",
+    "estado": "Disponible",
+    "foto": "/uploads/A001.jpg"
+  },
+  {
+    "id": "A002",
+    "marca": "Honda",
+    "modelo": "CR-V",
+    "anio": 2021,
+    "tipo": "SUV",
+    "precio": 560000,
+    "kilometraje": 41000,
+    "transmision": "Automática",
+    "estado": "Vendida",
+    "foto": "/uploads/A002.jpg"
+  },
+  {
+    "id": "A003",
+    "marca": "Ford",
+    "modelo": "Focus",
+    "anio": 2020,
+    "tipo": "Hatchback",
+    "precio": 310000,
+    "kilometraje": 54000,
+    "transmision": "Manual",
+    "estado": "Disponible",
+    "foto": "/uploads/A003.jpg"
+  }
+]

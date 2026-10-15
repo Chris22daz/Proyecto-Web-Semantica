@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ServiDrive: agencia demostrativa para explorar, comparar y cotizar vehículos." />
+  <title>ServiDrive | Agencia de vehículos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" data-page="inicio" aria-label="ServiDrive, ir al inicio">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>Servi<span class="brand-accent">Drive</span><small>AGENCIA DE AUTOS</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="#inicio" data-page="inicio" class="nav-link is-active">Inicio</a>
+      <a href="#inventario" data-page="inventario" class="nav-link">Inventario</a>
+      <a href="#registro" data-page="registro" class="nav-link">Registro</a>
+      <a href="#contacto" data-page="contacto" class="nav-link">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="page is-visible" id="page-inicio" data-page-panel="inicio">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">ENCUENTRA TU PRÓXIMO AUTO</p>
+          <h1>Encuentra tu próximo<br /><span>camino.</span></h1>
+          <p>Explora nuestro inventario, compara opciones y encuentra el vehículo ideal para ti.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-go="inventario">Explorar inventario <span aria-hidden="true">→</span></button>
+            <button class="btn btn-quiet" type="button" data-go="inventario" data-focus-favorites>Ver mis favoritos</button>
+          </div>
+          <div class="hero-note"><span class="pulse-dot"></span> Inventario sincronizado con los archivos del proyecto</div>
+        </div>
+        <div class="hero-art" aria-label="Ilustración decorativa de un automóvil">
+          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+          <div class="art-sun"></div>
+          <div class="art-car"><span class="car-window"></span><span class="car-wheel wheel-left"></span><span class="car-wheel wheel-right"></span></div>
+          <span class="art-label">SERVIDRIVE · MX</span>
+        </div>
+        <form id="heroSearchForm" class="hero-search">
+          <label>Tipo de auto<select id="heroType"><option value="Todos">Todos los tipos</option><option value="Sedan">Sedán</option><option value="SUV">SUV</option><option value="Hatchback">Hatchback</option><option value="Pickup">Pickup</option><option value="Deportivo">Deportivo</option></select></label>
+          <label>Marca<input id="heroBrand" type="search" placeholder="Todas las marcas" /></label>
+          <label>Precio máximo<select id="heroMaxPrice"><option value="">Cualquier precio</option><option value="300000">Hasta $300,000</option><option value="500000">Hasta $500,000</option><option value="750000">Hasta $750,000</option><option value="1000000">Hasta $1,000,000</option></select></label>
+          <button class="btn btn-primary" type="submit"><span aria-hidden="true">⌕</span> Buscar</button>
+        </form>
+      </div>
+
+      <section class="section-block" aria-labelledby="summaryHeading">
+        <div class="section-heading">
+          <div><p class="eyebrow">RESUMEN DE AGENCIA</p><h2 id="summaryHeading">El inventario, de un vistazo</h2></div>
+          <button class="text-link" type="button" data-go="inventario">Ver inventario completo →</button>
+        </div>
+        <div class="stats">
+          <article class="stat-card"><span class="stat-icon">▦</span><span class="stat-label">Vehículos registrados</span><strong id="totalCars">0</strong><small>En el catálogo</small></article>
+          <article class="stat-card stat-green"><span class="stat-icon">✓</span><span class="stat-label">Disponibles</span><strong id="availableCars">0</strong><small>Listos para ti</small></article>
+          <article class="stat-card stat-orange"><span class="stat-icon">↗</span><span class="stat-label">Vendidos</span><strong id="soldCars">0</strong><small>Unidades colocadas</small></article>
+          <article class="stat-card stat-blue"><span class="stat-icon">$</span><span class="stat-label">Valor disponible</span><strong id="inventoryValue">$0</strong><small>Suma de unidades disponibles</small></article>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <article class="panel chart-panel">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">ANÁLISIS</p><h2>Vehículos por categoría</h2></div><span class="live-tag">EN VIVO</span></div>
+          <div id="typeChart" class="bar-chart" aria-label="Gráfica de vehículos por categoría"></div>
+        </article>
+        <article class="panel insight-panel">
+          <p class="eyebrow">RESUMEN DEL CATÁLOGO</p>
+          <div class="insight-row"><span>Precio promedio</span><strong id="averagePrice">$0</strong></div>
+          <div class="insight-row"><span>Promedio de kilometraje</span><strong id="averageMileage">0 km</strong></div>
+          <div class="insight-row"><span>Categoría más común</span><strong id="topType">—</strong></div>
+          <div class="insight-row"><span>Autos marcados como vendidos</span><strong id="salesRate">0%</strong></div>
+          <p class="insight-foot">Las estadísticas se calculan a partir de los vehículos registrados actualmente.</p>
+        </article>
+      </section>
+      <section class="panel analytics-panel">
+        <div class="section-heading compact-heading"><div><p class="eyebrow">VALOR DEL CATÁLOGO</p><h2>Vehículos por rango de precio</h2></div><span class="live-tag">EN VIVO</span></div>
+        <div id="priceChart" class="bar-chart price-chart" aria-label="Vehículos por rango de precio"></div>
+      </section>
+
+      <section class="section-block featured-block">
+        <div class="section-heading"><div><p class="eyebrow">SELECCIÓN SERVIDRIVE</p><h2>Unidades destacadas</h2></div><button class="text-link" type="button" data-go="inventario">Explorar unidades →</button></div>
+        <div id="featuredCars" class="featured-grid"></div>
+      </section>
+      <section class="benefits-strip" aria-label="Beneficios de ServiDrive">
+        <article><span aria-hidden="true">✓</span><div><strong>Autos verificados</strong><small>Calidad y seguridad en cada compra</small></div></article>
+        <article><span aria-hidden="true">◇</span><div><strong>Trato confiable</strong><small>Tu satisfacción es nuestra prioridad</small></div></article>
+        <article><span aria-hidden="true">◎</span><div><strong>Soporte personalizado</strong><small>Te acompañamos en todo el proceso</small></div></article>
+        <article><span aria-hidden="true">▱</span><div><strong>Amplio inventario</strong><small>Encuentra tu próximo vehículo</small></div></article>
+      </section>
+    </section>
+
+    <section class="page" id="page-inventario" data-page-panel="inventario" hidden>
+      <div class="page-heading">
+        <div><p class="eyebrow">CATÁLOGO SERVIDRIVE</p><h1>Inventario</h1><p>Busca, filtra y administra las unidades de la agencia.</p></div>
+        <button id="newCarButton" class="btn btn-primary" type="button">+ Registrar vehículo</button>
+      </div>
+      <div class="stats compact-stats">
+        <article class="stat-card"><span class="stat-label">Total</span><strong id="inventoryTotal">0</strong></article>
+        <article class="stat-card stat-green"><span class="stat-label">Disponibles</span><strong id="inventoryAvailable">0</strong></article>
+        <article class="stat-card stat-orange"><span class="stat-label">Vendidos</span><strong id="inventorySold">0</strong></article>
+      </div>
+      <div class="inventory-layout">
+        <section class="panel form-panel" id="vehicleFormPanel">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">GESTIÓN</p><h2 id="formTitle">Registrar vehículo</h2></div></div>
+          <form id="carForm">
+            <input type="hidden" name="id" />
+            <label>Marca<input name="marca" type="text" placeholder="Toyota" maxlength="50" required /></label>
+            <label>Modelo<input name="modelo" type="text" placeholder="Corolla" maxlength="60" required /></label>
+            <label>Foto del vehículo<input name="foto" type="file" accept="image/*" /><span class="photo-help">Opcional. La imagen optimizada se guardará en la carpeta del proyecto.</span></label>
+            <img id="photoPreview" class="photo-preview" alt="Vista previa de la foto del vehículo" hidden />
+            <div class="two-cols">
+              <label>Año<input name="anio" type="number" min="1980" max="2035" placeholder="2024" required /></label>
+              <label>Precio (MXN)<input name="precio" type="number" min="1" step="any" placeholder="420000" required /></label>
+            </div>
+            <div class="two-cols">
+              <label>Kilometraje<input name="kilometraje" type="number" min="0" step="1" placeholder="25000" required /></label>
+              <label>Transmisión<select name="transmision" required><option value="">Selecciona</option><option>Automática</option><option>Manual</option></select></label>
+            </div>
+            <div class="two-cols">
+              <label>Tipo<select name="tipo" required><option value="">Selecciona</option><option value="Sedan">Sedán</option><option>SUV</option><option>Hatchback</option><option>Pickup</option><option>Deportivo</option></select></label>
+              <label>Estado<select name="estado" required><option>Disponible</option><option>Vendida</option></select></label>
+            </div>
+            <div class="actions"><button class="btn btn-primary" type="submit">Guardar vehículo</button><button class="btn btn-light" type="button" id="cancelButton">Cancelar</button></div>
+          </form>
+          <p class="local-note">El servidor mantiene el inventario y regenera el XML, XSD, XSL y RDF después de cada cambio. Las fotos se optimizan automáticamente.</p>
+        </section>
+        <section class="panel list-panel">
+          <div class="list-header"><div><p class="eyebrow">UNIDADES</p><h2>Todos los vehículos</h2><p id="syncStatus" class="sync-status" role="status" aria-live="polite">Conectando con el inventario…</p></div><input id="searchInput" type="search" placeholder="Buscar marca o modelo" aria-label="Buscar marca o modelo" /></div>
+          <div class="filters">
+            <label>Estado<select id="statusFilter"><option value="Todos">Todos</option><option value="Disponible">Disponible</option><option value="Vendida">Vendidos</option></select></label>
+            <label>Tipo<select id="typeFilter"><option value="Todos">Todos los tipos</option><option value="Sedan">Sedán</option><option value="SUV">SUV</option><option value="Hatchback">Hatchback</option><option value="Pickup">Pickup</option><option value="Deportivo">Deportivo</option></select></label>
+            <label class="price-filter">Precio mínimo<input id="minPriceFilter" type="number" min="0" step="any" placeholder="Sin mínimo" /></label>
+            <label class="price-filter">Precio máximo<input id="maxPriceFilter" type="number" min="1" step="any" placeholder="Sin límite" /></label>
+            <label>Ordenar por<select id="sortFilter"><option value="newest">Más recientes</option><option value="price-asc">Precio: menor a mayor</option><option value="price-desc">Precio: mayor a menor</option><option value="year-desc">Año: más reciente</option><option value="mileage-asc">Menor kilometraje</option></select></label>
+            <span id="resultsCount" class="results-count"></span>
+          </div>
+          <div id="inventoryList" class="inventory-list"></div>
+        </section>
+      </div>
+      <section class="inventory-tools" aria-label="Herramientas del inventario">
+        <article class="panel tool-panel" id="comparisonPanel">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">DECIDE CON CONFIANZA</p><h2>Comparador de vehículos</h2></div><button id="clearComparisonButton" class="text-link" type="button">Limpiar</button></div>
+          <p class="tool-hint">Selecciona hasta 3 autos desde el inventario para comparar sus características.</p>
+          <div id="comparisonContent"></div>
+        </article>
+        <article class="panel tool-panel" id="favoritesPanel">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">TU SELECCIÓN</p><h2>Vehículos favoritos</h2></div><span id="favoritesCount" class="live-tag">0</span></div>
+          <div id="favoritesContent"></div>
+        </article>
+        <article class="panel tool-panel history-panel" id="historyPanel">
+          <div class="section-heading compact-heading"><div><p class="eyebrow">ACTIVIDAD RECIENTE</p><h2>Historial del inventario</h2></div><button id="clearHistoryButton" class="text-link" type="button">Borrar historial</button></div>
+          <div id="historyContent"></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="page" id="page-registro" data-page-panel="registro" hidden>
+      <div class="page-heading"><div><p class="eyebrow">NOS ENCANTARÍA CONOCERTE</p><h1>Registro de clientes</h1><p>Déjanos tus datos y te ayudaremos a encontrar tu próximo vehículo.</p></div></div>
+      <div class="content-layout">
+        <section class="panel content-panel">
+          <h2>Crear registro</h2>
+          <form id="customerForm" class="stacked-form">
+            <div class="two-cols"><label>Nombre completo<input name="name" type="text" autocomplete="name" maxlength="100" required /></label><label>Teléfono<input name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="55 1234 5678" required /></label></div>
+            <label>Correo electrónico<input name="email" type="email" autocomplete="email" maxlength="120" required /></label>
+            <label>¿Qué vehículo te interesa?<select name="interest"><option value="Sin preferencia">Aún no lo sé</option><option>Sedan</option><option>SUV</option><option>Hatchback</option><option>Pickup</option><option>Deportivo</option></select></label>
+            <label class="check-label"><input name="consent" type="checkbox" required /><span>Acepto que estos datos se guarden en este navegador para la demostración.</span></label>
+            <button class="btn btn-primary" type="submit">Completar registro</button>
+          </form>
+          <p class="privacy-note">Proyecto escolar: los datos no se envían a un servidor. Evita ingresar información sensible.</p>
+        </section>
+        <aside class="panel content-panel registration-aside"><span class="aside-symbol">✳</span><p class="eyebrow">SIGUIENTE PASO</p><h2>Atención más cercana</h2><p>Tu registro permite organizar las solicitudes de interés en este prototipo. Para atención real, contáctanos por nuestros canales.</p><button class="text-link" type="button" data-go="contacto">Ir a contacto →</button><div class="aside-stat"><strong id="customerCount">0</strong><span>clientes registrados en este navegador</span></div></aside>
+      </div>
+    </section>
+
+    <section class="page" id="page-contacto" data-page-panel="contacto" hidden>
+      <div class="page-heading"><div><p class="eyebrow">ESTAMOS PARA AYUDARTE</p><h1>Contacto</h1><p>¿Tienes dudas sobre una unidad? Escríbenos.</p></div></div>
+      <div class="content-layout contact-layout">
+        <section class="panel content-panel">
+          <h2>Envíanos un mensaje</h2>
+          <form id="contactForm" class="stacked-form">
+            <div class="two-cols"><label>Nombre<input name="name" type="text" autocomplete="name" maxlength="100" required /></label><label>Correo electrónico<input name="email" type="email" autocomplete="email" maxlength="120" required /></label></div>
+            <label>Asunto<input name="subject" type="text" maxlength="120" placeholder="Consulta sobre un vehículo" required /></label>
+            <label>Mensaje<textarea name="message" rows="5" maxlength="1000" required></textarea></label>
+            <button class="btn btn-primary" type="submit">Preparar mensaje</button>
+          </form>
+          <p class="privacy-note">Este formulario es demostrativo; al enviarlo no se transmite información fuera de tu navegador.</p>
+        </section>
+        <aside class="contact-details">
+          <article class="contact-card"><span>01 / VISÍTANOS</span><h3>ServiDrive</h3><p>Av. San Claudio<br />Puebla, Pue.</p></article>
+          <article class="contact-card"><span>02 / LLÁMANOS</span><h3>Atención a clientes</h3><p><a href="tel:+52 22 21 03 89 64">+52 22 21 03 89 64</a><br /><a href="mailto:servidrive@gmail.com">servidrive@gmail.com</a></p></article>
+          <article class="contact-card"><span>03 / HORARIO</span><h3>Horario de atención</h3><p>Lunes a sábado<br />9:00 a 18:00 h</p></article>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer"><a class="footer-brand" href="#inicio" data-page="inicio">ServiDrive</a><span>Tu próximo auto, más fácil de encontrar</span><button type="button" data-go="inventario">Explorar inventario →</button></footer>
+  <dialog id="vehicleDialog" class="vehicle-dialog" aria-labelledby="vehicleDialogTitle">
+    <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Cerrar ficha">×</button></form>
+    <div id="vehicleDialogContent"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

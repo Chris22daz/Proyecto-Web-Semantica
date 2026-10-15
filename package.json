@@ -1,0 +1,9 @@
+{
+  "name": "servidrive",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agencia de vehículos con inventario XML y exportación RDF",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:schema="https://schema.org/">
+    <rdf:Description rdf:about="https://servidrive.example/vehiculo/A005">
+        <rdf:type rdf:resource="https://schema.org/Vehicle" />
+        <schema:identifier>A005</schema:identifier>
+        <schema:brand>Volkswagen</schema:brand>
+        <schema:model>POL</schema:model>
+        <schema:vehicleModelDate>2025</schema:vehicleModelDate>
+        <schema:bodyType>Sedan</schema:bodyType>
+        <schema:vehicleTransmission>Manual</schema:vehicleTransmission>
+        <schema:mileageFromOdometer>
+            <rdf:Description>
+                <schema:value>10000</schema:value>
+                <schema:unitCode>KMT</schema:unitCode>
+            </rdf:Description>
+        </schema:mileageFromOdometer>
+        <schema:offers>
+            <rdf:Description>
+                <rdf:type rdf:resource="https://schema.org/Offer" />
+                <schema:price>560000</schema:price>
+                <schema:priceCurrency>MXN</schema:priceCurrency>
+                <schema:availability rdf:resource="https://schema.org/InStock" />
+            </rdf:Description>
+        </schema:offers>
+        <schema:image rdf:resource="http://localhost:3000/uploads/A005.jpg" />
+    </rdf:Description>
+    <rdf:Description rdf:about="https://servidrive.example/vehiculo/A004">
+        <rdf:type rdf:resource="https://schema.org/Vehicle" />
+        <schema:identifier>A004</schema:identifier>
+        <schema:brand>Volkswagen</schema:brand>
+        <schema:model>Jetta</schema:model>
+        <schema:vehicleModelDate>2025</schema:vehicleModelDate>
+        <schema:bodyType>Sedan</schema:bodyType>
+        <schema:vehicleTransmission>Automática</schema:vehicleTransmission>
+        <schema:mileageFromOdometer>
+            <rdf:Description>
+                <schema:value>10000</schema:value>
+                <schema:unitCode>KMT</schema:unitCode>
+            </rdf:Description>
+        </schema:mileageFromOdometer>
+        <schema:offers>
+            <rdf:Description>
+                <rdf:type rdf:resource="https://schema.org/Offer" />
+                <schema:price>560000</schema:price>
+                <schema:priceCurrency>MXN</schema:priceCurrency>
+                <schema:availability rdf:resource="https://schema.org/InStock" />
+            </rdf:Description>
+        </schema:offers>
+        <schema:image rdf:resource="http://localhost:3000/uploads/A004.jpg" />
+    </rdf:Description>
+    <rdf:Description rdf:about="https://servidrive.example/vehiculo/A001">
+        <rdf:type rdf:resource="https://schema.org/Vehicle" />
+        <schema:identifier>A001</schema:identifier>
+        <schema:brand>Toyota</schema:brand>
+        <schema:model>Corolla</schema:model>
+        <schema:vehicleModelDate>2022</schema:vehicleModelDate>
+        <schema:bodyType>Sedan</schema:bodyType>
+        <schema:vehicleTransmission>Automática</schema:vehicleTransmission>
+        <schema:mileageFromOdometer>
+            <rdf:Description>
+                <schema:value>32000</schema:value>
+                <schema:unitCode>KMT</schema:unitCode>
+            </rdf:Description>
+        </schema:mileageFromOdometer>
+        <schema:offers>
+            <rdf:Description>
+                <rdf:type rdf:resource="https://schema.org/Offer" />
+                <schema:price>420000</schema:price>
+                <schema:priceCurrency>MXN</schema:priceCurrency>
+                <schema:availability rdf:resource="https://schema.org/InStock" />
+            </rdf:Description>
+        </schema:offers>
+        <schema:image rdf:resource="http://localhost:3000/uploads/A001.jpg" />
+    </rdf:Description>
+    <rdf:Description rdf:about="https://servidrive.example/vehiculo/A002">
+        <rdf:type rdf:resource="https://schema.org/Vehicle" />
+        <schema:identifier>A002</schema:identifier>
+        <schema:brand>Honda</schema:brand>
+        <schema:model>CR-V</schema:model>
+        <schema:vehicleModelDate>2021</schema:vehicleModelDate>
+        <schema:bodyType>SUV</schema:bodyType>
+        <schema:vehicleTransmission>Automática</schema:vehicleTransmission>
+        <schema:mileageFromOdometer>
+            <rdf:Description>
+                <schema:value>41000</schema:value>
+                <schema:unitCode>KMT</schema:unitCode>
+            </rdf:Description>
+        </schema:mileageFromOdometer>
+        <schema:offers>
+            <rdf:Description>
+                <rdf:type rdf:resource="https://schema.org/Offer" />
+                <schema:price>560000</schema:price>
+                <schema:priceCurrency>MXN</schema:priceCurrency>
+                <schema:availability rdf:resource="https://schema.org/SoldOut" />
+            </rdf:Description>
+        </schema:offers>
+        <schema:image rdf:resource="http://localhost:3000/uploads/A002.jpg" />
+    </rdf:Description>
+    <rdf:Description rdf:about="https://servidrive.example/vehiculo/A003">
+        <rdf:type rdf:resource="https://schema.org/Vehicle" />
+        <schema:identifier>A003</schema:identifier>
+        <schema:brand>Ford</schema:brand>
+        <schema:model>Focus</schema:model>
+        <schema:vehicleModelDate>2020</schema:vehicleModelDate>
+        <schema:bodyType>Hatchback</schema:bodyType>
+        <schema:vehicleTransmission>Manual</schema:vehicleTransmission>
+        <schema:mileageFromOdometer>
+            <rdf:Description>
+                <schema:value>54000</schema:value>
+                <schema:unitCode>KMT</schema:unitCode>
+            </rdf:Description>
+        </schema:mileageFromOdometer>
+        <schema:offers>
+            <rdf:Description>
+                <rdf:type rdf:resource="https://schema.org/Offer" />
+                <schema:price>310000</schema:price>
+                <schema:priceCurrency>MXN</schema:priceCurrency>
+                <schema:availability rdf:resource="https://schema.org/InStock" />
+            </rdf:Description>
+        </schema:offers>
+        <schema:image rdf:resource="http://localhost:3000/uploads/A003.jpg" />
+    </rdf:Description>
+</rdf:RDF>
